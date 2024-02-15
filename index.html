@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-image: url('https://www.thehosteller.com/_next/image?url=https%3A%2F%2Fstatic.thehosteller.com%2Fhostel%2Fimages%2F1.jpg%2F1-1678685752324.jpg&w=2048&q=75'); /* Background image link */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    #container {
+        width: 90%; /* Adjusted width for responsiveness */
+        max-width: 400px; /* Maximum width */
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        margin-right: 80px;
+        text-shadow: 2px 2px 4px black;
+    }
+    #qr-code {
+        width: 100%; /* Adjusted width for responsiveness */
+        max-width: 300px; /* Maximum width */
+        height: auto; /* Automatically adjust height */
+        margin: 0 auto; /* Center horizontally */
+        text-shadow: 2px 2px 4px black;
+    }
+    #qr-code img {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    p {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+    a {
+        color: white;
+    }
+    .contact-info {
+        float: right; /* Align contact info div to the right */
+        margin-left: 20px; /* Add some space between contact info and right edge */
+        margin-top: 160px;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+        border-radius: 5px; /* Rounded corners */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        height: 10%;
+    }
+    .contact-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: bold; /* Make the heading text bold */
+    color: white;
+    text-shadow: 2px 2px 4px black; /* Change text color to white */
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold; /* Make paragraph text bold */
+    color: white;
+    text-shadow: 2px 2px 4px black; /* Change text color to white */
+}
+</style>
+</head>
+<body>
+
+<div style="display: flex; justify-content: space-between;"> 
+<div id="container">
+    <h1>Scan the QR code below for the best homestay in Rishikesh.</h1>
+    <div id="qr-code"></div>
+    <p>We offer the cheapest rates in all of Rishikesh.</p>
+</div>
+<div class="contact-info">
+    <h2>Contact Information</h2>
+    <h2>Vikash Chauhan</h2>
+    <p>Phone Number: 6397650109</p>
+    <p>WhatsApp Number:6397650109</p>
+</div>
+</div>
+
+<script>
+    // Google Maps location link
+    var latitude = "30.1107310"; // Example latitude
+    var longitude = "78.3062430"; // Example longitude
+    var googleMapsLink = "https://maps.google.com/?q=" + latitude + "," + longitude;
+
+    // Function to generate QR code using Google Charts API
+    function generateQRCode(url) {
+        var qrCodeDiv = document.getElementById("qr-code");
+        qrCodeDiv.innerHTML = '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=' + encodeURIComponent(url) + '&choe=UTF-8" alt="QR Code">';
+    }
+
+    // Generate QR code for Google Maps location
+    generateQRCode(googleMapsLink);
+</script>
+
+</body>
+</html>
